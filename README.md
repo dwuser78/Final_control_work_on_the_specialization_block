@@ -5,7 +5,7 @@
 хомяками) и Вьючные животными заполнив файл Лошадьми, верблюдами и
 ослы), а затем объединить их. Просмотреть содержимое созданного файла.
 Переименовать файл, дав ему новое имя (Друзья человека).
-```sh
+```bash
 user@user-vbox-1:~$ echo "dog, cat, hamster" | cat > pets
 user@user-vbox-1:~$ echo "horse, camel, donkey" | cat > pack_animals
 user@user-vbox-1:~$ cat pets >> pack_animals 
@@ -15,14 +15,14 @@ dog, cat, hamster
 user@user-vbox-1:~$ mv pack_animals human_friends
 ```
  2. Создать директорию, переместить файл туда.
- ```sh
+ ```bash
 user@user-vbox-1:~$ mkdir animals
 user@user-vbox-1:~$ mv human_friends animals/
  ```
  3. Подключить дополнительный репозиторий MySQL. Установить любой пакет из этого репозитория.
  4. Установить и удалить deb-пакет с помощью dpkg.
  5. Выложить историю команд в терминале ubuntu
-```sh
+```bash
 user@user-vbox-1:~$ wget https://repo.mysql.com//mysql-apt-config_0.8.29-1_all.deb
 --2024-02-21 02:05:46--  https://repo.mysql.com//mysql-apt-config_0.8.29-1_all.deb
 Распознаётся repo.mysql.com (repo.mysql.com)… 23.210.173.94, 2a02:26f0:9500:b83::1d68, 2a02:26f0:9500:b8a::1d68

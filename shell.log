@@ -1,0 +1,66 @@
+user@user-vbox-1:~$ echo "dog, cat, hamster" | cat > pets
+user@user-vbox-1:~$ echo "horse, camel, donkey" | cat > pack_animals
+user@user-vbox-1:~$ cat pets >> pack_animals 
+user@user-vbox-1:~$ cat pack_animals 
+horse, camel, donkey
+dog, cat, hamster
+user@user-vbox-1:~$ mv pack_animals human_friends
+
+user@user-vbox-1:~$ mkdir animals
+user@user-vbox-1:~$ mv human_friends animals/
+
+user@user-vbox-1:~$ wget https://repo.mysql.com//mysql-apt-config_0.8.29-1_all.deb
+--2024-02-21 02:05:46--  https://repo.mysql.com//mysql-apt-config_0.8.29-1_all.deb
+Распознаётся repo.mysql.com (repo.mysql.com)… 23.210.173.94, 2a02:26f0:9500:b83::1d68, 2a02:26f0:9500:b8a::1d68
+Подключение к repo.mysql.com (repo.mysql.com)|23.210.173.94|:443... соединение установлено.
+HTTP-запрос отправлен. Ожидание ответа… 200 OK
+Длина: 18172 (18K) [application/x-debian-package]
+Сохранение в: ‘mysql-apt-config_0.8.29-1_all.deb’
+
+mysql-apt-config_0.8.29- 100%[===============================>]  17,75K  --.-KB/s    за 0s
+
+2024-02-21 02:05:46 (189 MB/s) - ‘mysql-apt-config_0.8.29-1_all.deb’ сохранён [18172/18172]
+
+user@user-vbox-1:~$ sudo dpkg -i mysql-apt-config_0.8.29-1_all.deb
+[sudo] пароль для user: 
+Выбор ранее не выбранного пакета mysql-apt-config.
+(Чтение базы данных … на данный момент установлено 295319 файлов и каталогов.)
+Подготовка к распаковке mysql-apt-config_0.8.29-1_all.deb …
+Распаковывается mysql-apt-config (0.8.29-1) …
+Настраивается пакет mysql-apt-config (0.8.29-1) …
+user@user-vbox-1:~$ sudo apt update
+...
+Получено 11,4 MB за 4с (2938 kB/s)
+Чтение списков пакетов… Готово
+Построение дерева зависимостей… Готово
+Чтение информации о состоянии… Готово
+Может быть обновлён 61 пакет. Запустите «apt list --upgradable» для показа.
+user@user-vbox-1:~$ sudo apt install mysql-server
+Чтение списков пакетов… Готово
+Построение дерева зависимостей… Готово
+Чтение информации о состоянии… Готово         
+Будут установлены следующие дополнительные пакеты:
+  libmecab2 mecab-ipadic mecab-ipadic-utf8 mecab-utils mysql-client mysql-common
+  mysql-community-client mysql-community-client-core mysql-community-client-plugins
+  mysql-community-server mysql-community-server-core
+Следующие НОВЫЕ пакеты будут установлены:
+  libmecab2 mecab-ipadic mecab-ipadic-utf8 mecab-utils mysql-client mysql-common
+  mysql-community-client mysql-community-client-core mysql-community-client-plugins
+  mysql-community-server mysql-community-server-core mysql-server
+Обновлено 0 пакетов, установлено 12 новых пакетов, для удаления отмечено 0 пакетов, и 61 пакетов не обновлено.
+Необходимо скачать 37,8 MB архивов.
+После данной операции объём занятого дискового пространства возрастёт на 273 MB.
+Хотите продолжить? [Д/н] y
+...
+Настраивается пакет mysql-community-client (8.0.36-1ubuntu22.04) …
+Настраивается пакет mysql-client (8.0.36-1ubuntu22.04) …
+Настраивается пакет mysql-community-server (8.0.36-1ubuntu22.04) …
+update-alternatives: используется /etc/mysql/mysql.cnf для предоставления /etc/mysql/my.cnf (my.cnf) в автоматическом режиме
+Created symlink /etc/systemd/system/multi-user.target.wants/mysql.service → /lib/systemd/system/mysql.service.
+Настраивается пакет mysql-server (8.0.36-1ubuntu22.04) …
+Обрабатываются триггеры для man-db (2.10.2-1) …
+Обрабатываются триггеры для libc-bin (2.35-0ubuntu3.6) …
+user@user-vbox-1:~$ sudo dpkg --purge mysql-apt-config 
+(Чтение базы данных … на данный момент установлено 295679 файлов и каталогов.)
+Удаляется mysql-apt-config (0.8.29-1) …
+Вычищаются файлы настройки пакета mysql-apt-config (0.8.29-1) …
